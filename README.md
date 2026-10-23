@@ -80,3 +80,19 @@ These results provide the retrospective analysis for the outcome Y.
 
 ## Note
 Each type of model was run 10 times under 10 different seeds, using one chain at a time. This resulted in 10 WAIC values for each model type. For each type, all analyses described above were carried out using the model run with the lowest WAIC. The average WAIC for each model type was also computed for model comparison and for selecting the best-performing model.
+
+### Gen_Simul_wDAR_333.R
+
+1. Generate 100 trials per scenario, each containing 600 individuals, two phases (24 time points each), six states, and three latent classes per phase and outcome.
+
+2. Consider 3 class separation levels: Easy, Medium, Hard. And consider 9 dependence structures governing phase transitions and outcome-class assignments.
+
+3. Sample phase-specific latent classes and categorical state sequences, based on within-sequence state transitions and between-phase class transitions.
+
+4. Assign latent outcome classes conditional on phase-specific classes and simulate normally distributed outcomes using class-specific means.
+
+5. Convert sequences into long format and save the simulated observations, true class assignments, and parameters.
+
+6. Compare CFDA-based regression, state-count regression, and two oracle models using training/test RMSE and R-squared.
+
+7. Plot sequence patterns and prediction performance, and assess associations among latent classes using chi-square tests.
